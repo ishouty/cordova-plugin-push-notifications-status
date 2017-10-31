@@ -1,13 +1,11 @@
-module.exports = PushNotificationsStatus = {};
+var exec = require("cordova/exec");
 
-PushNotificationsStatus.isPushNotificationsEnabled = function(successCallback, errorCallback) {
-  cordova.exec(
-    successCallback,
-    errorCallback,
-    "PushNotificationsStatus",
-    "isPushNotificationsEnabled"
-  );
+function PushNotificationsStatus() {
+}
+
+PushNotificationsStatus.prototype.isPushNotificationsEnabled = function(onsucess, onfail) {
+  exec(onsucess, onfail, "PushNotificationsStatus", "isPushNotificationsEnabled", []);
 };
 
-return PushNotificationsStatus;
-
+var PushNotificationsStatus = new PushNotificationsStatus();
+module.exports = PushNotificationsStatus;
